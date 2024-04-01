@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+
+:root {
+    --clr-1: #d3b17e;
+    --clr-2: #A25358;
+    --clr-3: #E7BB89;
+    --clr-4: #863852;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #211D22;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 166.667vh;
+    height: 83.333vh;
+    border-radius: 1.25vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 20.0);
+    position: relative;
+    background-color: #211D22;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    inset: -.5rem;
+    z-index: -1;
+    background: conic-gradient(from var(--gradient-angle), var(--clr-1), var(--clr-2), var(--clr-3), var(--clr-4), var(--clr-3));
+    border-radius: inherit;
+    animation: rotation 20s linear infinite;
+}
+
+.card::after {
+    filter: blur(3.5rem);
+}
+
+.name,
+.tagline,
+.greeting,
+.description,
+.profile-picture img {
+    padding: 20px;
+    top: 0;
+    left: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #DEA87C;
+}
+
+.name {
+    font-size: 35px;
+}
+
+.tagline {
+    margin-top: -40px;
+    font-size: 25px;
+    font-style: italic;
+}
+
+.greeting {
+    font-size: 40px;
+}
+
+.description {
+    font-size: 20px;
+    margin-top: -40px;
+    line-height: 1.8;
+}
+
+.profile-picture {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+.profile-picture img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#animated-logo {
+    width: 200px;
+    height: auto;
+}
+
+.social-icons, .arrow-button {
+    margin-top: 100px;
+}
+
+.social-icons a {
+    color: #DEA87C;
+    font-size: 70px;
+    margin-right: 50px;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.social-icons a:hover {
+    color: #9C3587;
+}
+
+.arrow-button {
+    padding: 20px;
+    position: absolute;
+    bottom: 70px;
+    right: 50px;
+    font-size: 70px;
+    color: #DEA87C;
+}
+
+.arrow-button :hover {
+    color: #9C3587;
+}
