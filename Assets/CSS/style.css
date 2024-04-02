@@ -16,6 +16,19 @@
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#fadeInElement {
+    animation: fadeIn 2s ease-in-out;
+}
+
 :root {
     --clr-1: #d3b17e;
     --clr-2: #A25358;
